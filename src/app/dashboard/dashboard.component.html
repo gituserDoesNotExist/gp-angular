@@ -1,0 +1,20 @@
+<div class = "bar">Welcome to the game portal test</div>
+
+<div class = "thumbnail-bar">
+	<div class = "thumbnail-item">
+		<a><img src="./assets/sudoku-thumbnail.PNG" alt="sudoku" (mouseenter)="createSudokuInfo()" (mouseleave)="clearInfo()"/></a>
+		<div class = "button-box">
+			<!--<button (click)="displayInfoForSudoku()">Info</button>-->
+   			<button (click)="playSudoku()">Play</button>
+		</div>
+	</div>
+	<div class = "thumbnail-item">
+		<a><img src="./assets/tictactoe-thumbnail.PNG" alt="thumbnail" (mouseenter)="createTicTacToeInfo()" (mouseleave)="clearInfo()"/></a>
+		<div class = "button-box">
+			<!--<button (click)="displayInfoForTicTacToe()">Info</button>-->
+      		<button (click)="playTicTacToe()">Play</button>
+		</div>
+	</div>
+</div>
+
+<div class = "infobox" >{{description}}</div>
