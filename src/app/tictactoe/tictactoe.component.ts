@@ -7,6 +7,7 @@ import { Response } from '@angular/http';
 import { Field } from './model/field';
 import { GameWithFields } from './model/game-with-fields';
 import { GameWithFieldsMapper } from './model/game-with-fields-mapper';
+import * as R from 'ramda';
 
 
 @Component({
@@ -16,16 +17,27 @@ import { GameWithFieldsMapper } from './model/game-with-fields-mapper';
 })
 export class TictactoeComponent implements OnInit {
 
-  constructor(private router: Router, @Inject(AppUrlValuesInjectionToken) private config: AppUrls, private service: TicTacToeService) { }
+  public fields: Array<Field>;
 
+  constructor(private router: Router, @Inject(AppUrlValuesInjectionToken) private config: AppUrls, private service: TicTacToeService) { }
+  
   public goToDashboard() {
     this.router.navigate([this.config.dashboard]);
   }
 
+  public updateField(id: number, fieldId: number, value: string) {
+    console.log(id + " " + fieldId + " " +  value);
+  }
+
   ngOnInit() {
     this.service.fetchNewGame(this.config.newgame).subscribe((res: GameWithFields) => {
-      console.log(res);
+      this.fields = this.sortFields(res.fields);
+      console.log(this.fields);
     });
+  }
+
+  private sortFields(fields: Array<Field>): Array<Field> {
+     return R.sort((field1: Field, field2: Field) => (field1.fieldId - field2.fieldId), fields);
   }
 
 }

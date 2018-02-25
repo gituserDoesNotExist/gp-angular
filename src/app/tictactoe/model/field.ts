@@ -1,24 +1,29 @@
 
 export class Field {
-    private id: number;
-    private lastModified: string;
-    private gameId: number;
-    private fieldId: number;
-    private value: string;
+    private _id: number;
+    private _lastModified: string;
+    private _gameId: number;
+    private _fieldId: number;
+    private _value: string;
 
     constructor(id: number, lastModified: string, gameId: number, fieldId: number, value: string) {
-        this.id=id;
-        this.lastModified=lastModified;
-        this.gameId=gameId;
-        this.fieldId=fieldId;
-        this.value=value;
+        this._id=id;
+        this._lastModified=lastModified;
+        this._gameId=gameId;
+        this._fieldId=fieldId;
+        this._value=value;
     }
 
-    public getId(): number {
-        return this.id;
+    get id() {
+        return this._id;
     }
 
-    public getLastModified():string {
-        return this.lastModified;
+    get value() {
+        return this._value;
     }
+
+    get fieldId() {
+        return this._fieldId;
+    }
+
 }
