@@ -5,4 +5,5 @@ export interface AppUrls {
     playSudoku: string;
     playTicTacToe:string;
     dashboard: string;
+    newgame: string;
 }

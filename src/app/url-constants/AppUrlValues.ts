@@ -6,5 +6,6 @@ export const AppUrlValues: AppUrls = {
     descriptionTictactoe:"./assets/description-tictactoe.json",
     playSudoku:'sudoku',
     playTicTacToe:'tictactoe',
-    dashboard: 'dashboard'
+    dashboard: 'dashboard',
+    newgame: 'http://localhost:8080/gameportal/game/load-tictactoe'
 }

@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TictactoeComponent } from './tictactoe/tictactoe.component';
 import {RouterModule, Routes} from '@angular/router';
 import { SudokuComponent } from './sudoku/sudoku.component';
+import { TicTacToeService } from './tictactoe/tictactoe.service';
+import { GameWithFieldsMapper } from './tictactoe/model/game-with-fields-mapper';
 
 const routes: Routes = [
   {path: 'tictactoe', component: TictactoeComponent },
@@ -30,8 +32,11 @@ const routes: Routes = [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes, {enableTracing: false})
   ],
   providers: [
-    DashboardService, 
-    {provide: AppUrlValuesInjectionToken, useValue: AppUrlValues}],
+    {provide: AppUrlValuesInjectionToken, useValue: AppUrlValues},
+    TicTacToeService,
+    DashboardService,
+    GameWithFieldsMapper
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

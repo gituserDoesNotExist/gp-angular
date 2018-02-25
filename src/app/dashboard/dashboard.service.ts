@@ -10,15 +10,15 @@ import { Description } from './description';
 @Injectable()
 export class DashboardService {
 
-    constructor(@Inject(AppUrlValuesInjectionToken) private config: AppUrls, private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient) {
     }
 
-    public getDescriptionForSudoku(): Observable<string> {
-        return this.fetchDescription(this.config.descriptionSudoku);
+    public getDescriptionForSudoku(url: string): Observable<string> {
+        return this.fetchDescription(url);
     }
 
-    public getDescriptionForTicTacToe(): Observable<string> {
-        return this.fetchDescription(this.config.descriptionTictactoe);
+    public getDescriptionForTicTacToe(url: string): Observable<string> {
+        return this.fetchDescription(url);
     }
 
     private fetchDescription(url: string): Observable<string> {

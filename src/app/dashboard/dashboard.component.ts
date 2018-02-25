@@ -14,12 +14,12 @@ export class DashboardComponent implements OnInit {
   public description: string = "";
 
   constructor(private dashboardService: DashboardService, private router: Router, 
-              @Inject(AppUrlValuesInjectionToken) private config: AppUrls) { 
+              @Inject(AppUrlValuesInjectionToken) public config: AppUrls) { 
 
               }
   
   public createTicTacToeInfo(): void {
-    this.dashboardService.getDescriptionForSudoku().subscribe(description => this.setDescriptionWithDelay(description));
+    this.dashboardService.getDescriptionForTicTacToe(this.config.descriptionTictactoe).subscribe(description => this.setDescriptionWithDelay(description));
   }
 
   public playTicTacToe(): void {
@@ -27,16 +27,19 @@ export class DashboardComponent implements OnInit {
   }
 
   public createSudokuInfo(): void {
-    this.dashboardService.getDescriptionForTicTacToe().subscribe(description => this.setDescriptionWithDelay(description));
+    this.dashboardService.getDescriptionForSudoku(this.config.descriptionSudoku).subscribe(description => this.setDescriptionWithDelay(description));
   }
 
   public playSudoku(): void {
-    console.log(this.config.playSudoku);
     this.navigate(this.config.playSudoku);
   }
 
   public clearInfo(): void {
     this.description = "";
+  }
+
+  public getDescription() {
+    return this.description;
   }
 
   private setDescriptionWithDelay(description: string): void {
