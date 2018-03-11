@@ -517,7 +517,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".button-field {\r\n    background-color: grey;\r\n    border: 2 px;\r\n    border-color: brown;\r\n    color: white;\r\n    width: 4cm;\r\n    height: 4cm;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    font-size: 2cm;\r\n    border-radius: 7px;\r\n    margin: 2px;\r\n}\r\n\r\n.inline-div {\r\n    display: inline;\r\n}", ""]);
+exports.push([module.i, ".button-field {\r\n    background-color: grey;\r\n    border: 2 px;\r\n    border-color: brown;\r\n    color: white;\r\n    width: 4cm;\r\n    height: 4cm;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    font-size: 1cm;\r\n    border-radius: 7px;\r\n    margin: 2px;\r\n}\r\n\r\n.inline-div {\r\n    display: inline;\r\n}", ""]);
 
 // exports
 
@@ -530,7 +530,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tictactoe/tictactoe.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tictactoe works!\n</p>\n<p>\n  {{status}}\n</p>\n\n<div class=\"inline-div\" *ngFor=\"let field of fields\">\n    <button class=\"button-field\"  id='{{field.fieldId}}' (click)=\"updateField(field.id, field.value)\">{{field.value}}</button>\n    <br *ngIf=\"field.fieldId%3==0\"/>\n</div>\n<br/>\n<br/>\n<br/>\n<br/>\n<button class = \"button-back\" (click)=\"goToDashboard()\">Go to dashboard</button>\n<br/>\n<div class=\"error-field\">{{errorField}}</div>\n"
+module.exports = "<p>\n  tictactoe works!\n</p>\n<p>\n  {{status}}\n</p>\n\n<div class=\"inline-div\" *ngFor=\"let field of fields\">\n    <button class=\"button-field\"  id='{{field.fieldId}}' (click)=\"updateField(field.id, 'USER')\">{{field.value}}</button>\n    <br *ngIf=\"field.fieldId%3==0\"/>\n</div>\n<br/>\n<br/>\n<br/>\n<br/>\n<button class = \"button-back\" (click)=\"goToDashboard()\">Go to dashboard</button>\n<br/>\n<div class=\"error-field\">{{errorField}}</div>\n"
 
 /***/ }),
 
@@ -580,7 +580,7 @@ var TictactoeComponent = /** @class */ (function () {
     TictactoeComponent.prototype.updateField = function (id, value) {
         var _this = this;
         var field = this.findField(id);
-        field.setValue(value);
+        console.log("update field with fieldId " + field.fieldId);
         this.service.updateField(this.createUrl(this.config.updateField, id), field).subscribe(function (res) {
             var gameStatus = res.getGameStatus();
             if (gameStatus.getId() === TictactoeComponent_1.ID_GAME_IN_PROGRESS) {
@@ -699,8 +699,8 @@ var AppUrlValues = {
     playSudoku: 'sudoku',
     playTicTacToe: 'tictactoe',
     dashboard: 'dashboard',
-    newgame: 'http://localhost:8080/gameportal/game/load-tictactoe',
-    updateField: 'http://localhost:8080/gameportal/game/field/move'
+    newgame: 'http://localhost:8080/gameportal-angular/game/load-tictactoe',
+    updateField: 'http://localhost:8080/gameportal-angular/game/field/move'
 };
 
 

@@ -1,3 +1,5 @@
+import { validateConfig } from "@angular/router/src/config";
+
 
 export class Field {
     private _id: number;
@@ -22,7 +24,7 @@ export class Field {
         return this._lastModified;
     }
 
-    public setValue(value: string) {
+    set value(value: string) {
         this._value = value;
     }
 

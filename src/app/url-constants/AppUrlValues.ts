@@ -7,6 +7,6 @@ export const AppUrlValues: AppUrls = {
     playSudoku:'sudoku',
     playTicTacToe:'tictactoe',
     dashboard: 'dashboard',
-    newgame: 'http://localhost:8080/gameportal/game/load-tictactoe',
-    updateField: 'http://localhost:8080/gameportal/game/field/move'
+    newgame: 'http://localhost:8080/gameportal-angular/game/load-tictactoe',
+    updateField: 'http://localhost:8080/gameportal-angular/game/field/move'
 }

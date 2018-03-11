@@ -36,7 +36,7 @@ export class TictactoeComponent implements OnInit {
 
   public updateField(id: number, value: string) {
     let field: Field = this.findField(id);
-    field.setValue(value);
+    console.log("update field with fieldId " + field.fieldId);
     this.service.updateField(this.createUrl(this.config.updateField,id), field).subscribe(
       (res: FieldStatus) => {
         let gameStatus: GameStatus = res.getGameStatus();
