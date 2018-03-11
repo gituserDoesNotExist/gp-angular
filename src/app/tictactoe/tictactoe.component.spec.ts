@@ -16,7 +16,7 @@ import { FieldStatusFactory } from './test.factory/field-status-factory';
 import { FieldFactory } from './test.factory/field-factory';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
-fdescribe('TictactoeComponent', () => {
+describe('TictactoeComponent', () => {
   let component: TictactoeComponent;
   let fixture: ComponentFixture<TictactoeComponent>;
   let routerStub: Router;
