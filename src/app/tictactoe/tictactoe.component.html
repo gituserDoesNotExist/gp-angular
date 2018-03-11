@@ -1,9 +1,12 @@
 <p>
   tictactoe works!
 </p>
+<p>
+  {{status}}
+</p>
 
 <div class="inline-div" *ngFor="let field of fields">
-    <button class="button-field"  id={{field.fieldId}} (click)="updateField(field.id, field.fieldId, field.value)">{{field.value}}</button>
+    <button class="button-field"  id='{{field.fieldId}}' (click)="updateField(field.id, field.value)">{{field.value}}</button>
     <br *ngIf="field.fieldId%3==0"/>
 </div>
 <br/>
@@ -11,3 +14,5 @@
 <br/>
 <br/>
 <button class = "button-back" (click)="goToDashboard()">Go to dashboard</button>
+<br/>
+<div class="error-field">{{errorField}}</div>

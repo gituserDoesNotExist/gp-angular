@@ -18,6 +18,14 @@ export class Field {
         return this._id;
     }
 
+    get lastModified() {
+        return this._lastModified;
+    }
+
+    public setValue(value: string) {
+        this._value = value;
+    }
+
     get value() {
         return this._value;
     }
