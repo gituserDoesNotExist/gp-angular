@@ -6,7 +6,7 @@
 </p>
 
 <div class="inline-div" *ngFor="let field of fields">
-    <button class="button-field"  id='{{field.fieldId}}' (click)="updateField(field.id, 'USER')">{{field.value}}</button>
+    <button class="button-field"  id='{{field.fieldId}}' (click)="updateIfValidMove(field.id)">{{field.value}}</button>
     <br *ngIf="field.fieldId%3==0"/>
 </div>
 <br/>

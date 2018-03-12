@@ -8,7 +8,7 @@ export class GameWithFieldsMapper {
     constructor() {};
 
     public asEntity(wrapper: GameFieldWrapper): GameWithFields {
-        return new GameWithFields(wrapper.game.id, wrapper.game.lastModified, wrapper.game.description, wrapper.game.status, wrapper.fields)
-    }
+        return new GameWithFields(wrapper.game.id, wrapper.game.lastModified, wrapper.game.description, wrapper.game.gameStatus, wrapper.fields)
+}
 
 }

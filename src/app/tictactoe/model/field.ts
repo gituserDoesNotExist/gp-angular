@@ -20,12 +20,20 @@ export class Field {
         return this._id;
     }
 
+    set id(id: number) {
+        this._id = id;
+    }
+
     get lastModified() {
         return this._lastModified;
     }
 
     set value(value: string) {
         this._value = value;
+    }
+
+    get gameId() {
+        return this._gameId;
     }
 
     get value() {

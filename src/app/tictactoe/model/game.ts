@@ -1,8 +1,8 @@
-import { Status } from "./status";
+import { GameStatus } from "./game-status";
 
 export class Game {
     
-    constructor(private _id: number, private _lastModified: string, private _description: string, private _status: Status) {
+    constructor(private _id: number, private _lastModified: string, private _description: string, private _gameStatus: GameStatus) {
     }
 
     get id() {
@@ -15,8 +15,8 @@ export class Game {
     get description() {
         return this._description;
     }
-    get status() {
-        return this._status;
+    get gameStatus() {
+        return this._gameStatus;
     }
 
 }

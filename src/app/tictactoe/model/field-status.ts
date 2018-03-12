@@ -3,16 +3,16 @@ import { GameStatus } from "./game-status";
 
 export class FieldStatus {
 
-    constructor(private field: Field, private gameStatus: GameStatus) {
+    constructor(private _field: Field, private _status: GameStatus) {
 
     }
 
-    public getField(): Field {
-        return this.field;
+    get field(): Field {
+        return this._field;
     }
 
-    public getGameStatus() {
-        return this.gameStatus;
+    get status() {
+        return this._status;
     }
 
 }

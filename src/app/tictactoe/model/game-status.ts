@@ -1,14 +1,14 @@
 export class GameStatus {
 
-    constructor(private id: number, private text: string) {
+    constructor(private _id: number, private _text: string) {
     }
 
-    public getId(): number {
-        return this.id;
+    get id(): number {
+        return this._id;
     }
 
-    public getText(): string {
-        return this.text;
+    get text(): string {
+        return this._text;
     }
 
 }

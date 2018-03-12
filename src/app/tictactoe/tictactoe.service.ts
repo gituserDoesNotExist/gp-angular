@@ -25,10 +25,17 @@ export class TicTacToeService {
     }
 
     public fetchNewGame(url: string): Observable<GameWithFields> {
+        console.log("fetch new game");
         return this.http.get(url, {observe: 'response'})
         .map((httpResponse: HttpResponse<GameFieldWrapper>) => this.mapper.asEntity(httpResponse.body))
         .pipe(catchError(this.handleError));
     }
+
+    public checkIfValidMove(url: string, field: Field): Observable<FieldStatus> {
+        return this.http.post(url, field, {observe: 'response'})
+            .map((httpResponse: HttpResponse<FieldStatus>) => httpResponse.body)
+            .pipe(catchError(this.handleError)); 
+    }    
 
     public updateField(url: string, field: Field): Observable<FieldStatus> {
         return this.http.put(url, field, {observe: 'response'})
@@ -36,8 +43,8 @@ export class TicTacToeService {
             .pipe(catchError(this.handleError));
     }
 
-    private handleError(error: HttpErrorResponse): ErrorObservable {
-        return new ErrorObservable(TicTacToeService.ERROR_MESSAGE);
+    private handleError(errorResponse: HttpErrorResponse): ErrorObservable {
+        return new ErrorObservable(TicTacToeService.ERROR_MESSAGE + ":" + errorResponse.error);
     }
 
 }

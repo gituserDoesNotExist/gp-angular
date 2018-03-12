@@ -18,4 +18,9 @@ export class FieldFactory {
     public static aFieldWith(lastModified: string, value: string) {
         return new Field(FieldFactory.ID, lastModified, FieldFactory.GAME_ID, FieldFactory.FIELD_ID, value);
     }
+
+    public static aFieldWithIdAndValue(id: number, value: string) {
+        return new Field(id, FieldFactory.TIMESTAMP, FieldFactory.GAME_ID, FieldFactory.FIELD_ID, value);
+    }
+
 }

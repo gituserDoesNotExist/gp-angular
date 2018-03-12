@@ -1,10 +1,10 @@
-import { Status } from "./status";
+import { GameStatus } from "./game-status";
 import { Field } from "./field";
 
 export class GameWithFields {
 
         
-    constructor(private _id: number, private _lastModified: string, public _description: string, private _status: Status, private _fields: Array<Field>) {
+    constructor(private _id: number, private _lastModified: string, public _description: string, private _status: GameStatus, private _fields: Array<Field>) {
     }
 
     get id() {

@@ -34,18 +34,28 @@ export class TictactoeComponent implements OnInit {
     this.router.navigate([this.config.dashboard]);
   }
 
-  public updateField(id: number, value: string) {
-    var field: Field = this.findField(id);
-    console.log("update field with fieldId " + field.fieldId);
-    this.service.updateField(this.createUrl(this.config.updateField,id), field).subscribe(
+  public updateIfValidMove(id: number) {
+    let field: Field = this.findField(id);
+    this.service.checkIfValidMove(this.config.checkMove, field).subscribe(
       (res: FieldStatus) => {
-        field.value = value;
-        let gameStatus: GameStatus = res.getGameStatus();
+        let validFieldForUpdate: Field = res.field;
+        this.setNewField(validFieldForUpdate);
+        this.updateField(validFieldForUpdate)
+      },
+      (error) => this.errorField = error
+    );
+  }
 
-        if (gameStatus.getId() === TictactoeComponent.ID_GAME_IN_PROGRESS) {
-          this.setNewField(res.getField());
+  public updateField(field: Field) {
+    console.log("update field with fieldId " + field.fieldId);
+    this.service.updateField(this.createUrl(this.config.updateField, field.id), field).subscribe(
+      (res: FieldStatus) => {
+        console.log(res);
+        let gameStatus: GameStatus = res.status;
+        if (gameStatus.id === TictactoeComponent.ID_GAME_IN_PROGRESS) {
+          this.setNewField(res.field);
         }
-        this.status = gameStatus.getText();
+        this.status = gameStatus.text;
       },
       (error) => this.errorField = error
     );
