@@ -31,8 +31,8 @@ export class TicTacToeService {
         .pipe(catchError(this.handleError));
     }
 
-    public checkIfValidMove(url: string, field: Field): Observable<FieldStatus> {
-        return this.http.post(url, field, {observe: 'response'})
+    public getMoveFromAi(url: string): Observable<FieldStatus> {
+        return this.http.get(url, {observe: 'response'})
             .map((httpResponse: HttpResponse<FieldStatus>) => httpResponse.body)
             .pipe(catchError(this.handleError)); 
     }    
@@ -44,7 +44,10 @@ export class TicTacToeService {
     }
 
     private handleError(errorResponse: HttpErrorResponse): ErrorObservable {
-        return new ErrorObservable(TicTacToeService.ERROR_MESSAGE + ":" + errorResponse.error);
+        if (errorResponse.error.text === undefined) {
+            return new ErrorObservable(TicTacToeService.ERROR_MESSAGE + ":" + errorResponse.error);
+        }
+        return new ErrorObservable(TicTacToeService.ERROR_MESSAGE + ":" + errorResponse.error.text);
     }
 
 }

@@ -13,8 +13,12 @@ export class FieldStatusFactory {
         return new FieldStatus(field, GameStatusFactory.aAiHatGewonnen());
     }
 
+    public static aUserHatGewonnenWith(field: Field): FieldStatus {
+        return new FieldStatus(field, GameStatusFactory.aUserHatGewonnen());
+    }
+
     public static aSpielLaeuftNochFieldStatus(field: Field): FieldStatus {
         return new FieldStatus(field, GameStatusFactory.aSpielLaeuftNoch());
-}
+    }
 
 }

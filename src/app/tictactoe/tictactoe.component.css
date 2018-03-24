@@ -13,6 +13,11 @@
     margin: 2px;
 }
 
+.ttt-disable {
+    background-color: #e0eeee;
+    color: blue;
+}
+
 .inline-div {
     display: inline;
 }

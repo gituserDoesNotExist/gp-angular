@@ -6,11 +6,12 @@
 </p>
 
 <div class="inline-div" *ngFor="let field of fields">
-    <button class="button-field"  id='{{field.fieldId}}' (click)="updateIfValidMove(field.id)">{{field.value}}</button>
+    <button [appDisableButton]="gameOver" class="button-field"  id='{{field.fieldId}}' ng-disabled="true" (click)="updateField(field)">{{field.value}}</button>
     <br *ngIf="field.fieldId%3==0"/>
 </div>
 <br/>
 <br/>
+<button class="new-game" [appHighlightButton]="gameOver" (click)="newGame()">New Game</button>
 <br/>
 <br/>
 <button class = "button-back" (click)="goToDashboard()">Go to dashboard</button>

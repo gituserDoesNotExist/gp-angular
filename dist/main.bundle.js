@@ -1,0 +1,924 @@
+webpackJsonp(["main"],{
+
+/***/ "../../../../../src/$$_lazy_route_resource lazy recursive":
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy recursive";
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* AppComponent's private CSS styles */\r\nh1 {\r\n    font-size: 1.2em;\r\n    color: #999;\r\n    margin-bottom: 0;\r\n  }\r\nh2 {\r\n    font-size: 2em;\r\n    margin-top: 0;\r\n    padding-top: 0;\r\n  }\r\nnav a {\r\n    padding: 5px 10px;\r\n    text-decoration: none;\r\n    margin-top: 10px;\r\n    display: inline-block;\r\n    background-color: #eee;\r\n    border-radius: 4px;\r\n  }\r\nnav a:visited, a:link {\r\n    color: #607D8B;\r\n  }\r\nnav a:hover {\r\n    color: #039be5;\r\n    background-color: #CFD8DC;\r\n  }\r\nnav a.active {\r\n    color: #039be5;\r\n  }\r\n/*\r\n  Copyright 2017-2018 Google Inc. All Rights Reserved.\r\n  Use of this source code is governed by an MIT-style license that\r\n  can be found in the LICENSE file at http://angular.io/license\r\n  */", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<h1>\n    Welcome to {{ title }}!\n</h1>\n  \n  <router-outlet></router-outlet>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AppComponent = /** @class */ (function () {
+    function AppComponent() {
+        this.title = 'app';
+    }
+    AppComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-root',
+            template: __webpack_require__("../../../../../src/app/app.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        })
+    ], AppComponent);
+    return AppComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__url_constants_AppUrlValues__ = __webpack_require__("../../../../../src/app/url-constants/AppUrlValues.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__url_constants_app_constants_values__ = __webpack_require__("../../../../../src/app/url-constants/app.constants.values.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__url_constants_AppUrlValuesInjectionToken__ = __webpack_require__("../../../../../src/app/url-constants/AppUrlValuesInjectionToken.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dashboard_dashboard_service__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__tictactoe_tictactoe_component__ = __webpack_require__("../../../../../src/app/tictactoe/tictactoe.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sudoku_sudoku_component__ = __webpack_require__("../../../../../src/app/sudoku/sudoku.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__tictactoe_tictactoe_service__ = __webpack_require__("../../../../../src/app/tictactoe/tictactoe.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__tictactoe_model_game_with_fields_mapper__ = __webpack_require__("../../../../../src/app/tictactoe/model/game-with-fields-mapper.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__url_constants_AppConstantsInjectionToken__ = __webpack_require__("../../../../../src/app/url-constants/AppConstantsInjectionToken.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__directives_disable_button_directive__ = __webpack_require__("../../../../../src/app/directives/disable-button.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__directives_highlight_button_directive__ = __webpack_require__("../../../../../src/app/directives/highlight-button.directive.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var routes = [
+    { path: 'tictactoe', component: __WEBPACK_IMPORTED_MODULE_9__tictactoe_tictactoe_component__["a" /* TictactoeComponent */] },
+    { path: 'sudoku', component: __WEBPACK_IMPORTED_MODULE_11__sudoku_sudoku_component__["a" /* SudokuComponent */] },
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard_component__["a" /* DashboardComponent */] },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard_component__["a" /* DashboardComponent */] }
+];
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard_component__["a" /* DashboardComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__tictactoe_tictactoe_component__["a" /* TictactoeComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__sudoku_sudoku_component__["a" /* SudokuComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__directives_disable_button_directive__["a" /* DisableButtonDirective */],
+                __WEBPACK_IMPORTED_MODULE_16__directives_highlight_button_directive__["a" /* HighlightButtonDirective */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */], __WEBPACK_IMPORTED_MODULE_10__angular_router__["b" /* RouterModule */].forRoot(routes, { enableTracing: false })
+            ],
+            providers: [
+                { provide: __WEBPACK_IMPORTED_MODULE_5__url_constants_AppUrlValuesInjectionToken__["a" /* AppUrlValuesInjectionToken */], useValue: __WEBPACK_IMPORTED_MODULE_3__url_constants_AppUrlValues__["a" /* AppUrlValues */] },
+                { provide: __WEBPACK_IMPORTED_MODULE_14__url_constants_AppConstantsInjectionToken__["a" /* AppConstantsInjectionToken */], useValue: __WEBPACK_IMPORTED_MODULE_4__url_constants_app_constants_values__["a" /* AppConstantsValues */] },
+                __WEBPACK_IMPORTED_MODULE_12__tictactoe_tictactoe_service__["a" /* TicTacToeService */],
+                __WEBPACK_IMPORTED_MODULE_7__dashboard_dashboard_service__["a" /* DashboardService */],
+                __WEBPACK_IMPORTED_MODULE_13__tictactoe_model_game_with_fields_mapper__["a" /* GameWithFieldsMapper */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/commons/list-util/list.utility.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListUtility; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__validation_validations__ = __webpack_require__("../../../../../src/app/commons/validation/validations.ts");
+
+var ListUtility = /** @class */ (function () {
+    function ListUtility() {
+    }
+    ListUtility.isEmpty = function (list) {
+        return list.length === 0;
+    };
+    ListUtility.getIndexOf = function (item, list) {
+        var index = list.indexOf(item);
+        __WEBPACK_IMPORTED_MODULE_0__validation_validations__["a" /* Validations */].checkNot(index === ListUtility.INDEX_ELEMENT_NOT_FOUND, "element not found");
+        return index;
+    };
+    ListUtility.INDEX_ELEMENT_NOT_FOUND = -1;
+    return ListUtility;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/commons/validation/validations.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Validations; });
+var Validations = /** @class */ (function () {
+    function Validations() {
+    }
+    Validations.checkNot = function (condition, errorMessage) {
+        if (condition) {
+            throw new Error(errorMessage);
+        }
+    };
+    return Validations;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/dashboard.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@CHARSET \"ISO-8859-1\";\r\n\r\n:root {\r\n\t--size: 200px;\r\n}\r\n\r\nbody {\r\n\tpadding: 0;\r\n \tmargin: 0;\r\n}\r\n\r\n/* Welcome bar */\r\n\r\n.bar {\r\n\tmargin: 2% 0px 2% 0px;\r\n\tbackground-color: #5c616b;\r\n\tpadding: 5px;\r\n\tcolor: white;\r\n}\r\n\r\n/* Thumbnails */\r\n\r\n.thumbnail-item {\r\n\tdisplay:inline-block;\r\n}\r\n\r\n.thumbnail-bar>.thumbnail-item img {\r\n\twidth: var(--size);\r\n\theight: var(--size);\r\n}\r\n\r\n.thumbnail-bar>.thumbnail-item .button-box {\r\n\tdisplay: -webkit-box;\r\n\tdisplay: -ms-flexbox;\r\n\tdisplay: flex;\r\n}\r\n\r\n.thumbnail-bar>.thumbnail-item .button-box>button {\r\n\t-webkit-box-flex: 1;\r\n\t    -ms-flex: 1;\r\n\t        flex: 1;\r\n}\r\n\r\n/* Infotext */\r\n\r\n.infobox {\r\n\tmargin: 10px;\r\n\tmin-width: 30px;\r\n\tdisplay: inline-block;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/dashboard.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class = \"bar\">Welcome to the game portal test</div>\n\n<div class = \"thumbnail-bar\">\n\t<div class = \"thumbnail-item\">\n\t\t<a><img src=\"./assets/sudoku-thumbnail.PNG\" alt=\"sudoku\" (mouseenter)=\"createSudokuInfo()\" (mouseleave)=\"clearInfo()\"/></a>\n\t\t<div class = \"button-box\">\n   \t\t\t<button class=\"play-sudoku\" (click)=\"playSudoku()\">Play</button>\n\t\t</div>\n\t</div>\n\t<div class = \"thumbnail-item\">\n\t\t<a><img src=\"./assets/tictactoe-thumbnail.PNG\" alt=\"thumbnail\" (mouseenter)=\"createTicTacToeInfo()\" (mouseleave)=\"clearInfo()\"/></a>\n\t\t<div class = \"button-box\">\n      \t\t<button class=\"play-tictactoe\" (click)=\"playTicTacToe()\">Play</button>\n\t\t</div>\n\t</div>\n</div>\n\n<div class = \"infobox\" >{{description}}</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/dashboard.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard_service__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__url_constants_AppUrlValuesInjectionToken__ = __webpack_require__("../../../../../src/app/url-constants/AppUrlValuesInjectionToken.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent(dashboardService, router, config) {
+        this.dashboardService = dashboardService;
+        this.router = router;
+        this.config = config;
+        this.description = "";
+    }
+    DashboardComponent.prototype.createTicTacToeInfo = function () {
+        var _this = this;
+        this.dashboardService.getDescriptionForTicTacToe(this.config.descriptionTictactoe).subscribe(function (description) { return _this.setDescriptionWithDelay(description); });
+    };
+    DashboardComponent.prototype.playTicTacToe = function () {
+        this.navigate(this.config.playTicTacToe);
+    };
+    DashboardComponent.prototype.createSudokuInfo = function () {
+        var _this = this;
+        this.dashboardService.getDescriptionForSudoku(this.config.descriptionSudoku).subscribe(function (description) { return _this.setDescriptionWithDelay(description); });
+    };
+    DashboardComponent.prototype.playSudoku = function () {
+        this.navigate(this.config.playSudoku);
+    };
+    DashboardComponent.prototype.clearInfo = function () {
+        this.description = "";
+    };
+    DashboardComponent.prototype.getDescription = function () {
+        return this.description;
+    };
+    DashboardComponent.prototype.setDescriptionWithDelay = function (description) {
+        var _this = this;
+        setTimeout(function () {
+            _this.description = description;
+        }, 700);
+    };
+    DashboardComponent.prototype.navigate = function (url) {
+        this.router.navigate([url]);
+    };
+    DashboardComponent.prototype.ngOnInit = function () {
+    };
+    DashboardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-dashboard',
+            template: __webpack_require__("../../../../../src/app/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.css")]
+        }),
+        __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Inject */])(__WEBPACK_IMPORTED_MODULE_3__url_constants_AppUrlValuesInjectionToken__["a" /* AppUrlValuesInjectionToken */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__dashboard_service__["a" /* DashboardService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */], Object])
+    ], DashboardComponent);
+    return DashboardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/dashboard.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__description__ = __webpack_require__("../../../../../src/app/dashboard/description.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DashboardService = /** @class */ (function () {
+    function DashboardService(httpClient) {
+        this.httpClient = httpClient;
+    }
+    DashboardService.prototype.getDescriptionForSudoku = function (url) {
+        return this.fetchDescription(url);
+    };
+    DashboardService.prototype.getDescriptionForTicTacToe = function (url) {
+        return this.fetchDescription(url);
+    };
+    DashboardService.prototype.fetchDescription = function (url) {
+        var _this = this;
+        return this.httpClient.get(url).
+            map(function (res) { return new __WEBPACK_IMPORTED_MODULE_3__description__["a" /* Description */](res['name'], res['numberOfPlayers']); }).
+            map(function (description) { return _this.descriptionAsText(description); });
+    };
+    DashboardService.prototype.descriptionAsText = function (description) {
+        return "This game is called " + description.getName() + " and the number of players is " + description.getNumberOfPlayers();
+    };
+    DashboardService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], DashboardService);
+    return DashboardService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/description.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Description; });
+var Description = /** @class */ (function () {
+    function Description(name, numberOfPlayers) {
+        this.name = name;
+        this.numberOfPlayers = numberOfPlayers;
+        this.name = name;
+        this.numberOfPlayers = numberOfPlayers;
+    }
+    Description.prototype.getName = function () {
+        return this.name;
+    };
+    Description.prototype.getNumberOfPlayers = function () {
+        return this.numberOfPlayers;
+    };
+    return Description;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/directives/disable-button.directive.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DisableButtonDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DisableButtonDirective = /** @class */ (function () {
+    function DisableButtonDirective(elRef) {
+        this.elRef = elRef;
+        this.initColor = elRef.nativeElement.style.color;
+    }
+    DisableButtonDirective.prototype.ngOnChanges = function (changes) {
+        // console.log("there was a change");
+        if (this.disable) {
+            // console.log("now it is true");
+            this.elRef.nativeElement.disabled = true;
+            this.elRef.nativeElement.classList.add("ttt-disable");
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])("appDisableButton"),
+        __metadata("design:type", Boolean)
+    ], DisableButtonDirective.prototype, "disable", void 0);
+    DisableButtonDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */])({
+            selector: '[appDisableButton]'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]])
+    ], DisableButtonDirective);
+    return DisableButtonDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/directives/highlight-button.directive.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HighlightButtonDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HighlightButtonDirective = /** @class */ (function () {
+    function HighlightButtonDirective(elRef) {
+        this.elRef = elRef;
+    }
+    HighlightButtonDirective.prototype.ngOnChanges = function (changes) {
+        if (this.gameOver) {
+            this.elRef.nativeElement.style.backgroundColor = "green";
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])("appHighlightButton"),
+        __metadata("design:type", Boolean)
+    ], HighlightButtonDirective.prototype, "gameOver", void 0);
+    HighlightButtonDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */])({
+            selector: '[appHighlightButton]'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]])
+    ], HighlightButtonDirective);
+    return HighlightButtonDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/sudoku/sudoku.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/sudoku/sudoku.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  not yet implemented\n</p>\n\n<button class=\"button-back\" (click)=\"goToDashboard()\">Go to dashboard</button>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/sudoku/sudoku.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SudokuComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__url_constants_AppUrlValuesInjectionToken__ = __webpack_require__("../../../../../src/app/url-constants/AppUrlValuesInjectionToken.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var SudokuComponent = /** @class */ (function () {
+    function SudokuComponent(router, config) {
+        this.router = router;
+        this.config = config;
+    }
+    SudokuComponent.prototype.goToDashboard = function () {
+        this.router.navigate([this.config.dashboard]);
+    };
+    SudokuComponent.prototype.ngOnInit = function () {
+    };
+    SudokuComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-sudoku',
+            template: __webpack_require__("../../../../../src/app/sudoku/sudoku.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/sudoku/sudoku.component.css")]
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__url_constants_AppUrlValuesInjectionToken__["a" /* AppUrlValuesInjectionToken */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */], Object])
+    ], SudokuComponent);
+    return SudokuComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/tictactoe/model/game-with-fields-mapper.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GameWithFieldsMapper; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_with_fields__ = __webpack_require__("../../../../../src/app/tictactoe/model/game-with-fields.ts");
+
+var GameWithFieldsMapper = /** @class */ (function () {
+    function GameWithFieldsMapper() {
+    }
+    ;
+    GameWithFieldsMapper.prototype.asEntity = function (wrapper) {
+        return new __WEBPACK_IMPORTED_MODULE_0__game_with_fields__["a" /* GameWithFields */](wrapper.game.id, wrapper.game.lastModified, wrapper.game.description, wrapper.game.gameStatus, wrapper.fields);
+    };
+    return GameWithFieldsMapper;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/tictactoe/model/game-with-fields.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GameWithFields; });
+var GameWithFields = /** @class */ (function () {
+    function GameWithFields(_id, _lastModified, _description, _status, _fields) {
+        this._id = _id;
+        this._lastModified = _lastModified;
+        this._description = _description;
+        this._status = _status;
+        this._fields = _fields;
+    }
+    Object.defineProperty(GameWithFields.prototype, "id", {
+        get: function () {
+            return this._id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameWithFields.prototype, "fields", {
+        get: function () {
+            return this._fields;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameWithFields.prototype, "description", {
+        get: function () {
+            return this._description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return GameWithFields;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/tictactoe/tictactoe.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".button-field {\r\n    background-color: grey;\r\n    border: 2 px;\r\n    border-color: brown;\r\n    color: white;\r\n    width: 4cm;\r\n    height: 4cm;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    font-size: 1cm;\r\n    border-radius: 7px;\r\n    margin: 2px;\r\n}\r\n\r\n.ttt-disable {\r\n    background-color: #e0eeee;\r\n    color: blue;\r\n}\r\n\r\n.inline-div {\r\n    display: inline;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/tictactoe/tictactoe.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  tictactoe works!\n</p>\n<p>\n  {{status}}\n</p>\n\n<div class=\"inline-div\" *ngFor=\"let field of fields\">\n    <button [appDisableButton]=\"gameOver\" class=\"button-field\"  id='{{field.fieldId}}' ng-disabled=\"true\" (click)=\"updateField(field)\">{{field.value}}</button>\n    <br *ngIf=\"field.fieldId%3==0\"/>\n</div>\n<br/>\n<br/>\n<button class=\"new-game\" [appHighlightButton]=\"gameOver\" (click)=\"newGame()\">New Game</button>\n<br/>\n<br/>\n<button class = \"button-back\" (click)=\"goToDashboard()\">Go to dashboard</button>\n<br/>\n<div class=\"error-field\">{{errorField}}</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/tictactoe/tictactoe.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TictactoeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__url_constants_AppUrlValuesInjectionToken__ = __webpack_require__("../../../../../src/app/url-constants/AppUrlValuesInjectionToken.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tictactoe_service__ = __webpack_require__("../../../../../src/app/tictactoe/tictactoe.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ramda__ = __webpack_require__("../../../../ramda/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__commons_validation_validations__ = __webpack_require__("../../../../../src/app/commons/validation/validations.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__commons_list_util_list_utility__ = __webpack_require__("../../../../../src/app/commons/list-util/list.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__url_constants_AppConstantsInjectionToken__ = __webpack_require__("../../../../../src/app/url-constants/AppConstantsInjectionToken.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+
+var TictactoeComponent = /** @class */ (function () {
+    function TictactoeComponent(router, config, service, constants) {
+        this.router = router;
+        this.config = config;
+        this.service = service;
+        this.constants = constants;
+        this.status = "";
+        this.errorField = "";
+        this.gameOver = false;
+    }
+    TictactoeComponent_1 = TictactoeComponent;
+    TictactoeComponent.prototype.goToDashboard = function () {
+        this.router.navigate([this.config.dashboard]);
+    };
+    TictactoeComponent.prototype.getMoveFromAi = function (gameId) {
+        var _this = this;
+        this.service.getMoveFromAi(this.config.getMoveFromAi.replace("__GAMEID__", gameId.toString())).subscribe(function (res) {
+            _this.setFieldAndStatus(res);
+            _this.gameOverIfNecessary(res.status);
+        }, function (error) { return _this.errorField = error; });
+    };
+    TictactoeComponent.prototype.updateField = function (field) {
+        var _this = this;
+        console.log("update field with fieldId " + field.fieldId);
+        this.service.updateField(this.config.updateField.replace("__ID__", field.id.toString()), field).subscribe(function (res) {
+            _this.setFieldAndStatus(res);
+            _this.gameOverIfNecessary(res.status);
+            if (res.status.id === _this.constants.gameInProgress) {
+                _this.getMoveFromAi(field.gameId);
+            }
+        }, function (error) { return _this.errorField = error; });
+    };
+    TictactoeComponent.prototype.setFieldAndStatus = function (fieldStatus) {
+        this.setNewField(fieldStatus.field);
+        this.status = fieldStatus.status.text;
+    };
+    TictactoeComponent.prototype.newGame = function () {
+        this.ngOnInit();
+    };
+    TictactoeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.fetchNewGame(this.config.newgame).subscribe(function (res) {
+            _this.fields = _this.sortFields(res.fields);
+        }, function (error) { return _this.errorField = error; });
+    };
+    TictactoeComponent.prototype.createUrl = function (base, id) {
+        return base + "/" + id;
+    };
+    TictactoeComponent.prototype.sortFields = function (fields) {
+        return __WEBPACK_IMPORTED_MODULE_4_ramda__["b" /* sort */](function (field1, field2) { return (field1.fieldId - field2.fieldId); }, fields);
+    };
+    TictactoeComponent.prototype.findField = function (id) {
+        var results = __WEBPACK_IMPORTED_MODULE_4_ramda__["a" /* filter */](function (field) { return field.id == id; }, this.fields);
+        __WEBPACK_IMPORTED_MODULE_5__commons_validation_validations__["a" /* Validations */].checkNot(__WEBPACK_IMPORTED_MODULE_6__commons_list_util_list_utility__["a" /* ListUtility */].isEmpty(results), TictactoeComponent_1.FIELD_NOT_FOUND);
+        return results[0];
+    };
+    TictactoeComponent.prototype.setNewField = function (field) {
+        var oldField = this.findField(field.id);
+        var index = __WEBPACK_IMPORTED_MODULE_6__commons_list_util_list_utility__["a" /* ListUtility */].getIndexOf(oldField, this.fields);
+        this.fields[index] = field;
+    };
+    TictactoeComponent.prototype.gameOverIfNecessary = function (status) {
+        if (status.id !== this.constants.gameInProgress) {
+            this.gameOver = true;
+        }
+    };
+    TictactoeComponent.ID_GAME_IN_PROGRESS = 5;
+    TictactoeComponent.FIELD_NOT_FOUND = "Das Feld konnte nicht gefunden werden";
+    TictactoeComponent = TictactoeComponent_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-tictactoe',
+            template: __webpack_require__("../../../../../src/app/tictactoe/tictactoe.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/tictactoe/tictactoe.component.css")]
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__url_constants_AppUrlValuesInjectionToken__["a" /* AppUrlValuesInjectionToken */])),
+        __param(3, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Inject */])(__WEBPACK_IMPORTED_MODULE_7__url_constants_AppConstantsInjectionToken__["a" /* AppConstantsInjectionToken */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */], Object, __WEBPACK_IMPORTED_MODULE_3__tictactoe_service__["a" /* TicTacToeService */], Object])
+    ], TictactoeComponent);
+    return TictactoeComponent;
+    var TictactoeComponent_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/tictactoe/tictactoe.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TicTacToeService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_game_with_fields_mapper__ = __webpack_require__("../../../../../src/app/tictactoe/model/game-with-fields-mapper.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__("../../../../rxjs/_esm5/operators.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_observable_ErrorObservable__ = __webpack_require__("../../../../rxjs/_esm5/observable/ErrorObservable.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var TicTacToeService = /** @class */ (function () {
+    function TicTacToeService(http, mapper) {
+        this.http = http;
+        this.mapper = mapper;
+    }
+    TicTacToeService_1 = TicTacToeService;
+    TicTacToeService.prototype.fetchNewGame = function (url) {
+        var _this = this;
+        console.log("fetch new game");
+        return this.http.get(url, { observe: 'response' })
+            .map(function (httpResponse) { return _this.mapper.asEntity(httpResponse.body); })
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError));
+    };
+    TicTacToeService.prototype.getMoveFromAi = function (url) {
+        return this.http.get(url, { observe: 'response' })
+            .map(function (httpResponse) { return httpResponse.body; })
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError));
+    };
+    TicTacToeService.prototype.updateField = function (url, field) {
+        return this.http.put(url, field, { observe: 'response' })
+            .map(function (httpResponse) { return httpResponse.body; })
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["a" /* catchError */])(this.handleError));
+    };
+    TicTacToeService.prototype.handleError = function (errorResponse) {
+        if (errorResponse.error.text === undefined) {
+            return new __WEBPACK_IMPORTED_MODULE_4_rxjs_observable_ErrorObservable__["a" /* ErrorObservable */](TicTacToeService_1.ERROR_MESSAGE + ":" + errorResponse.error);
+        }
+        return new __WEBPACK_IMPORTED_MODULE_4_rxjs_observable_ErrorObservable__["a" /* ErrorObservable */](TicTacToeService_1.ERROR_MESSAGE + ":" + errorResponse.error.text);
+    };
+    TicTacToeService.ERROR_MESSAGE = "Response does not have HttpStatus 200";
+    TicTacToeService = TicTacToeService_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__model_game_with_fields_mapper__["a" /* GameWithFieldsMapper */]])
+    ], TicTacToeService);
+    return TicTacToeService;
+    var TicTacToeService_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/url-constants/AppConstantsInjectionToken.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppConstantsInjectionToken; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+
+var AppConstantsInjectionToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* InjectionToken */]('app.constants.values.ts');
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/url-constants/AppUrlValues.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppUrlValues; });
+var AppUrlValues = {
+    url1: "some-url",
+    descriptionSudoku: "./assets/description-sudoku.json",
+    descriptionTictactoe: "./assets/description-tictactoe.json",
+    playSudoku: 'sudoku',
+    playTicTacToe: 'tictactoe',
+    dashboard: 'dashboard',
+    newgame: 'http://localhost:8080/gameportal-angular/game/load-tictactoe',
+    getMoveFromAi: 'http://localhost:8080/gameportal-angular/field/ai/move/__GAMEID__',
+    updateField: 'http://localhost:8080/gameportal-angular/field/move/__ID__'
+};
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/url-constants/AppUrlValuesInjectionToken.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppUrlValuesInjectionToken; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+
+var AppUrlValuesInjectionToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* InjectionToken */]('AppUrlValues.ts');
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/url-constants/app.constants.values.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppConstantsValues; });
+var AppConstantsValues = {
+    gameInProgress: 5
+};
+
+
+/***/ }),
+
+/***/ "../../../../../src/environments/environment.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+var environment = {
+    production: false
+};
+
+
+/***/ }),
+
+/***/ "../../../../../src/main.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/esm5/platform-browser-dynamic.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* enableProdMode */])();
+}
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
+    .catch(function (err) { return console.log(err); });
+
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("../../../../../src/main.ts");
+
+
+/***/ })
+
+},[0]);
+//# sourceMappingURL=main.bundle.js.map

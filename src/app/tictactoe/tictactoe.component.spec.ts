@@ -18,6 +18,8 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { any } from 'ramda';
 import { Field } from './model/field';
 import { GameStatusFactory } from './test.factory/game-status-factory';
+import { AppConstantsInjectionToken } from '../url-constants/AppConstantsInjectionToken';
+import { AppConstantsValues } from '../url-constants/app.constants.values';
 
 describe('TictactoeComponent', () => {
   let component: TictactoeComponent;
@@ -33,6 +35,7 @@ describe('TictactoeComponent', () => {
       providers: [
         TicTacToeService,
         {provide: AppUrlValuesInjectionToken, useValue: AppUrlValues},
+        {provide: AppConstantsInjectionToken, useValue: AppConstantsValues},
         {provide: Router, useValue: routerStub},
         GameWithFieldsMapper
       ]
@@ -65,7 +68,7 @@ describe('TictactoeComponent', () => {
     expect(routerStub.navigate).toHaveBeenCalledWith(['dashboard']);
   });
 
-  it('should fill the fields with the values from service', ()=> {
+  it('onInit', ()=> {
     let gameWithFields: Observable<GameWithFields> = of(GameWithFieldsFactory.aCompleteGameWithFields());
     spyOn(service, 'fetchNewGame').and.returnValue(gameWithFields);
     component.ngOnInit();
@@ -80,7 +83,7 @@ describe('TictactoeComponent', () => {
     expect(component.fields[0].lastModified).toBe("2018-10-02T10:02:03.123456");
   });
 
-  it('should sort the fields by id after loading a new game', ()=> {
+  it('onInit_Sort', ()=> {
     let gameWithFields: Observable<GameWithFields> = of(GameWithFieldsFactory.aCompleteGameWithFieldsWithUnorderedFields());
     spyOn(service, 'fetchNewGame').and.returnValue(gameWithFields);
     component.ngOnInit();
@@ -100,7 +103,7 @@ describe('TictactoeComponent', () => {
     expect(elements.item(8).textContent).toEqual('val8');
   });
 
-  it('should display the error message when error occurs while loading new game', ()=> {
+  it('onInit_ServerReturnsError_DisplaysErrorMessage', ()=> {
     let errorField: HTMLElement = fixture.debugElement.nativeElement.querySelector('.error-field');
     spyOn(service, 'fetchNewGame').and.returnValue(new ErrorObservable("error message"));
 
@@ -115,81 +118,55 @@ describe('TictactoeComponent', () => {
 
 
 
-  it('should update the fields array and display the new value', ()=> {
-    const id: number = 3;
-    const newValue: string = "new field value";
-    const newTimestamp = "2019";
-    const newField: Field = FieldFactory.aFieldWith(newTimestamp, newValue);
+  it('should update_Success', ()=> {
+    initGameField();
+    const updatedField: Field = FieldFactory.aCompleteFieldWithIdFieldIdAndValue(1, 1, "updated user");
+    const fieldAi: Field = FieldFactory.aCompleteFieldWithIdFieldIdAndValue(2, 2, "updated ai");
 
-    let gameWithFields: Observable<GameWithFields> = of(GameWithFieldsFactory.aCompleteGameWithFieldsWithUnorderedFields());
-    let fieldStatus: Observable<FieldStatus> = of(FieldStatusFactory.aSpielLaeuftNochFieldStatus(newField));
+    spyOn(service, 'updateField').and.returnValue(of(FieldStatusFactory.aSpielLaeuftNochFieldStatus(updatedField)));
+    spyOn(service, 'getMoveFromAi').and.returnValue(of(FieldStatusFactory.aSpielLaeuftNochFieldStatus(fieldAi)));
+
+    component.updateField(updatedField);
+    
+    expect(component.fields[0].value).toEqual(updatedField.value);
+    expect(service.updateField).toHaveBeenCalledWith("http://localhost:8080/GamePortal/field/move/1", updatedField);
+    expect(service.getMoveFromAi).toHaveBeenCalledWith("http://localhost:8080/GamePortal/field/ai/move/4");
+    expect(component.fields[1].value).toEqual(fieldAi.value);
+  });
+
+  it('update_UserWins_ShouldNotCallGetMoveFromAi', ()=> {
+    initGameField();
+    const updatedField: Field = FieldFactory.aCompleteFieldWithIdFieldIdAndValue(1, 1, "updated user");
+
+    spyOn(service, 'updateField').and.returnValue(of(FieldStatusFactory.aUserHatGewonnenWith(updatedField)));
+    spyOn(service, 'getMoveFromAi');
+
+    component.updateField(updatedField);
+    
+    expect(component.fields[0].value).toEqual(updatedField.value);
+    expect(component.status).toEqual("User hat gewonnen");
+    expect(service.updateField).toHaveBeenCalledWith("http://localhost:8080/GamePortal/field/move/1", updatedField);
+    expect(service.getMoveFromAi).not.toHaveBeenCalled();
+  });
+
+  it('update_AiHasAlreadyWon_ServerReturnsError_DoesNotSetFieldFromUser', ()=> {
+    initGameField();
+    const updatedField: Field = FieldFactory.aCompleteFieldWithIdFieldIdAndValue(1, 1, "updated user");
+
+    spyOn(service, 'updateField').and.returnValue(new ErrorObservable("invalid move"));
+    spyOn(service, 'getMoveFromAi');
+
+    component.updateField(updatedField);
+    
+    expect(component.fields[0].value).not.toEqual("updated user");
+    expect(component.errorField).toEqual("invalid move");
+    expect(service.getMoveFromAi).not.toHaveBeenCalled();
+  });
+    
+  function initGameField() {
+    let gameWithFields: Observable<GameWithFields> = of(GameWithFieldsFactory.aCompleteGameWithFields());
     spyOn(service, 'fetchNewGame').and.returnValue(gameWithFields);
-    spyOn(service, 'updateField').and.returnValue(fieldStatus);
     component.ngOnInit();
-
-    component.updateField(newField);
-    
-    expect(component.fields[0].lastModified).toEqual(newTimestamp);
-  });
-
-  it('should not update the fields array when the game is over', ()=> {
-    let gameWithFields: GameWithFields = GameWithFieldsFactory.aCompleteGameWithFields();
-    let fieldStatus: Observable<FieldStatus> = of(FieldStatusFactory.aAiHatGewonnenFieldStatus());
-    spyOn(service, 'fetchNewGame').and.returnValue(of(gameWithFields));
-    spyOn(service, 'updateField').and.returnValue(fieldStatus);
-    component.ngOnInit();
-
-    gameWithFields.fields.forEach((field: Field) => {
-      expect(field.value).not.toEqual("value");
-    });
-  });
-
-
-  it('should display the error message when an error occurs upon updating a field', () => {
-    let gameWithFields: Observable<GameWithFields> = of(GameWithFieldsFactory.aCompleteGameWithFieldsWithUnorderedFields());
-    spyOn(service, 'fetchNewGame').and.returnValue(gameWithFields);
-    spyOn(service,"updateField").and.returnValue(new ErrorObservable("error upon updating"));
-    let errorField: HTMLElement = fixture.debugElement.nativeElement.querySelector('.error-field');
-    component.ngOnInit();
-    
-    expect(errorField.textContent).toEqual("");
-    
-    component.updateField(FieldFactory.aCompleteField());
-    fixture.detectChanges()
-
-    expect(component.errorField).toEqual("error upon updating");
-    expect(errorField.textContent).toEqual("error upon updating");
-
-  });
-
-  it('should build the url correctly when updateFieldIfValidMove', () => {
-    let gameWithFields: GameWithFields = GameWithFieldsFactory.aCompleteGameWithFields();
-    gameWithFields.fields[4].id = 5;
-    let fieldStatus: FieldStatus = FieldStatusFactory.aSpielLaeuftNochFieldStatus(FieldFactory.aCompleteField());
-    let fieldStatusAfterUpdate: FieldStatus = new FieldStatus(FieldFactory.aFieldWithIdAndValue(5,"updated"),GameStatusFactory.aSpielLaeuftNoch());
-    spyOn(service, 'fetchNewGame').and.returnValue(of(gameWithFields));
-    spyOn(service, "checkIfValidMove").and.returnValue(of(fieldStatus));
-    spyOn(service, "updateField").and.returnValue(of(fieldStatusAfterUpdate));
-    component.ngOnInit();
-
-    component.updateIfValidMove(1);
-    
-    expect(service.checkIfValidMove).toHaveBeenCalledWith('http://localhost:8080/GamePortal/field/move/valid', gameWithFields.fields[0]);
-    expect(component.fields[0].value).toEqual("value");
-    expect(component.fields[4].value).toEqual("updated");
-  });
-
-  it('should display an error message', () => {
-    let gameWithFields: GameWithFields = GameWithFieldsFactory.aCompleteGameWithFields();
-    spyOn(service, 'fetchNewGame').and.returnValue(of(gameWithFields));
-    spyOn(service, "checkIfValidMove").and.returnValue(new ErrorObservable("error message"));
-    component.ngOnInit();
-
-    component.updateIfValidMove(1);
-    fixture.detectChanges();
-
-    expect(component.errorField).toEqual("error message");
-    expect(fixture.debugElement.nativeElement.querySelector('.error-field').textContent).toEqual("error message");
-  });
-
+  }
+  
 });

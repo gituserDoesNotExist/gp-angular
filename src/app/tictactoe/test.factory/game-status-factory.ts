@@ -6,6 +6,11 @@ export class GameStatusFactory {
         return new GameStatus(2,"AI hat gewonnen");
     }
 
+    
+    public static aUserHatGewonnen(): GameStatus {
+        return new GameStatus(1,"User hat gewonnen");
+    }
+
     public static aSpielLaeuftNoch(): GameStatus {
         return new GameStatus(5,"Spiel läuft noch");
     }

@@ -43,50 +43,31 @@ describe("tictactoe service", () => {
             expect(res).toEqual(GameWithFieldsFactory.aGameWithFieldsWithOneField());
         });
 
-        let req: TestRequest = httpMock.expectOne({url: 'some-url',method: 'GET'});
-        let response: HttpResponse<GameFieldWrapper> = 
-                    aSuccessfulResponse(new GameFieldWrapper(GameFactory.aCompleteGame(), [FieldFactory.aCompleteField()]), "some-url");
-        req.flush(response.body, {
-            headers: response.headers,
-            status: response.status,
-            statusText: response.statusText
-        });
+        simulateResponse("some-url","GET",aSuccessfulResponse(new GameFieldWrapper(GameFactory.aCompleteGame(), [FieldFactory.aCompleteField()]), "some-url"));
     });
 
-    it('should report an error when backend returns bad request on loading new game', () => {
+    it('onInit_ServerReturnsError_ServiceReturnsErrorObservable', () => {
         service.fetchNewGame('some-url').subscribe(
             res => console.log(res),
             error => expect(error).toEqual("Response does not have HttpStatus 200:böse")
         );
 
-        let req: TestRequest = httpMock.expectOne({url: 'some-url',method: 'GET'});
-        let response: HttpResponse<string> = anErrorResponse();
-        req.flush(response.body, {
-            headers: response.headers,
-            status: response.status,
-            statusText: response.statusText
-        });
+        simulateResponse("some-url","GET", anErrorResponse());
     });
 
 
 
-    it('should call the api endpoint when updating the given field', () => {
+    it('updateField_Success', () => {
         let fieldToUpdate: Field = new Field(ID,"2000-10-1T10:02:03.123456", GAME_ID, FIELD_ID, "old-value");
 
         service.updateField('url-update', fieldToUpdate).subscribe((res: FieldStatus) => {
             expect(res.field.value).toEqual("value");
         });
 
-        let req: TestRequest = httpMock.expectOne({url: 'url-update',method: 'PUT'});
-        let response: HttpResponse<FieldStatus> = aSuccessfulResponse(FieldStatusFactory.aAiHatGewonnenFieldStatus(),"url-update");
-        req.flush(response.body, {
-            headers: response.headers,
-            status: response.status,
-            statusText: response.statusText
-        });
+        simulateResponse("url-update","PUT",aSuccessfulResponse(FieldStatusFactory.aAiHatGewonnenFieldStatus(),"url-update"));
     });
 
-    it('should display the error message when an error occurs upon updating', () => {
+    it('updateField_ServerReturnsError_ServiceReturnsErrorObservable', () => {
         let fieldToUpdate: Field = new Field(ID,"2000-10-1T10:02:03.123456", GAME_ID, FIELD_ID, "old-value");
 
         service.updateField('url-update', fieldToUpdate).subscribe(
@@ -96,49 +77,41 @@ describe("tictactoe service", () => {
             }
         );
 
-        let req: TestRequest = httpMock.expectOne({url: 'url-update',method: 'PUT'});
-        let response: HttpResponse<string> = anErrorResponse();
-        req.flush(response.body, {
-            headers: response.headers,
-            status: response.status,
-            statusText: response.statusText
-        });
+        simulateResponse("url-update","PUT", anErrorResponse());
     });
 
-    it('should call the api endpoint when check if the move is valid', () => {
+    it('getMoveFromAi_Success', () => {
         let fieldToUpdate: Field = new Field(ID,"2000-10-1T10:02:03.123456", GAME_ID, FIELD_ID, "old-value");
 
-        service.checkIfValidMove('url-move-valid', fieldToUpdate).subscribe((res: FieldStatus) => {
+        service.getMoveFromAi('url-get-move').subscribe((res: FieldStatus) => {
             expect(res.field.value).toEqual("value");
             expect(res.status.text).toEqual("AI hat gewonnen");
         });
 
-        let req: TestRequest = httpMock.expectOne({url: 'url-move-valid',method: 'POST'});
-        let response: HttpResponse<FieldStatus> = aSuccessfulResponse(FieldStatusFactory.aAiHatGewonnenFieldStatus(),"url-move-valid");
-        req.flush(response.body, {
-            headers: response.headers,
-            status: response.status,
-            statusText: response.statusText
-        });
+        simulateResponse("url-get-move",'GET', aSuccessfulResponse(FieldStatusFactory.aAiHatGewonnenFieldStatus(),"url-get-move"));
     });
 
-    it('should display the error message when an error occurs upon checking if the move is valid', () => {
+    it('getMoveFromAi_ServerReturnsError_ServiceReturnsErrorObservable', () => {
         let fieldToUpdate: Field = new Field(ID,"2000-10-1T10:02:03.123456", GAME_ID, FIELD_ID, "old-value");
 
-        service.checkIfValidMove('url-move-valid', fieldToUpdate).subscribe(
+        service.getMoveFromAi('url-get-move').subscribe(
             (res: FieldStatus) => console.log(res),
             (error) => {
                 expect(error).toEqual("Response does not have HttpStatus 200:böse");
             });
 
-        let req: TestRequest = httpMock.expectOne({url: 'url-move-valid',method: 'POST'});
-        let response: HttpResponse<string> = anErrorResponse();
+        simulateResponse("url-get-move",'GET', anErrorResponse());
+    });
+
+    function simulateResponse<T>(requestUrl: string, requestMethod: string, serverResponse: HttpResponse<T>): void {
+        let req: TestRequest = httpMock.expectOne({url: requestUrl,method: requestMethod});
+        let response: HttpResponse<T> = serverResponse;
         req.flush(response.body, {
             headers: response.headers,
             status: response.status,
             statusText: response.statusText
         });
-    });
+    }
 
 
     function aSuccessfulResponse<T>(body: T, url: string): HttpResponse<T> {

@@ -11,6 +11,10 @@ export class FieldFactory {
         return new Field(FieldFactory.ID, FieldFactory.TIMESTAMP, FieldFactory.GAME_ID, FieldFactory.FIELD_ID, "value");
     }
 
+    public static  aCompleteFieldWithIdFieldIdAndValue(id: number, fieldId: number, value: string): Field {
+        return new Field(id, FieldFactory.TIMESTAMP, FieldFactory.GAME_ID, fieldId, value);
+    }
+
     public static  aCompleteFieldWithFieldIdAndValue(fieldId: number, value: string): Field {
         return new Field(FieldFactory.ID, FieldFactory.TIMESTAMP, FieldFactory.GAME_ID, fieldId, value);
     }

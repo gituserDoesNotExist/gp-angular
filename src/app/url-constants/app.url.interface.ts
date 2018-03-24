@@ -6,6 +6,6 @@ export interface AppUrls {
     playTicTacToe:string;
     dashboard: string;
     newgame: string;
-    checkMove: string;
+    getMoveFromAi: string;
     updateField: string;
 }
